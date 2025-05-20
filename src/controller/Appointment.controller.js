@@ -1,6 +1,6 @@
 import { asyncHandler } from "../utils/Asynchandlar.js";
 import { ApiError } from "../utils/ApiError.js";
-import { Appointment } from "../model/appointment.model.js";
+import { Appointment } from "../model/Appointment.model.js";
 import { Doctor } from "../model/Doctor.model.js";
 import { Patient } from "../model/Patient.model.js";
 import { ApiResponse } from "../utils/ApiResponce.js";
