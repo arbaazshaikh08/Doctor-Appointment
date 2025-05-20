@@ -111,7 +111,7 @@ const loginPatient = asyncHandler(async (req, res) => {
       .status(error.statusCode || 500)
       .json({ message: error.message || "Something went wrong" });
   }
-});
+}); 
 // Logout Patient
 const logoutPatient = asyncHandler(async (req, res) => {
   try {
