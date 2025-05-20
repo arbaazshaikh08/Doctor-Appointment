@@ -60,14 +60,14 @@ const createPatient = asyncHandler(async (req, res) => {
 // Login Patient
 const loginPatient = asyncHandler(async (req, res) => {
   try {
-    const { name, password } = req.body;
+    const { email, password } = req.body;
 
-    if (!name && !password) {
+    if (!email || !password) {
       throw new ApiError(400, "Name and password is required");
     }
 
     const patient = await Patient.findOne({
-      $or: [{ name }, { password }],
+      $or: [{ email }, { password }],
     });
     if (!patient) {
       throw new ApiError(404, "patient does not exist");
@@ -134,7 +134,7 @@ const logoutPatient = asyncHandler(async (req, res) => {
       .status(200)
       .clearCookie("accessToken", options)
       .clearCookie("refreshToken", options)
-      .json(new ApiResponce(200, {}, "Hospital Closed"));
+      .json(new ApiResponse(200, {}, "Patient Logout Successfully"));
   } catch (error) {
     return res
       .status(error.statusCode || 500)
