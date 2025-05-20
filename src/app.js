@@ -16,6 +16,9 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+app.get("/", (req, res) => {
+  res.send("Server is live ✅");
+});
 // imported router
 import PatientRouter from "./router/Patient.route.js";
 import DoctorRouter from "./router/Doctor.route.js";
